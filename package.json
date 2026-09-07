@@ -1,0 +1,34 @@
+{
+  "name": "futballmenedzser",
+  "version": "1.0.0",
+  "description": "Futballmenedzser — magyar nyelvű futballmenedzser-játék",
+  "main": "main.js",
+  "author": "Pamuk Norbert",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "exe": "electron-builder --win portable",
+    "telepito": "electron-builder --win nsis",
+    "mac": "electron-builder --mac",
+    "linux": "electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "hu.futballmenedzser.app",
+    "productName": "Futballmenedzser",
+    "directories": { "output": "kesz" },
+    "files": ["main.js", "index.html", "icon.png"],
+    "win": { "icon": "icon.png", "target": ["portable", "nsis"] },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Futballmenedzser"
+    },
+    "mac": { "icon": "icon.png", "category": "public.app-category.games" },
+    "linux": { "icon": "icon.png", "category": "Game" }
+  }
+}
